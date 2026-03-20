@@ -1,0 +1,34 @@
+{
+  "workData": [
+    {
+      "image": "/images/work/work-img-1.jpg",
+      "title": "Multi-Cloud DevOps Architecture (AWS + GCP)",
+      "link": "https://docs.google.com/document/d/1GybPZCrhcrVVEu3TbWROliO80Vb5UJ_vQejg4QAHWCw/edit?usp=sharing"
+    },
+    {
+      "image": "/images/work/work-img-2.jpg",
+      "title": "Monitoring Stack on Amazon EKS — Prometheus, Grafana, Loki, TLS & Kyverno",
+      "link": "https://medium.com/@saravana08052002/building-a-secure-monitoring-stack-on-amazon-eks-tls-prometheus-grafana-promtail-loki-aede23064461"
+    },
+   
+
+    {
+      "image": "/images/work/work-img-5.jpg",
+      "title": "Automated AWS Infrastructure & CI/CD Deployment using Terraform and GitLab",
+      "link": "https://docs.google.com/document/d/1tV3mehTQyZoFoSdEsWlZK11CseZOuvIiNl_sOF77ilg/edit?usp=sharing"
+    },    
+    {
+      "image": "/images/work/work-img-4.jpg",
+      "title": "Streaming Data Pipeline with Google Cloud Dataflow : Pub/Sub to BigQuery",
+      "link": "https://medium.com/@saravana08052002/create-a-streaming-data-pipeline-with-google-cloud-dataflow-pub-sub-to-bigquery-c8fa4ed05f00"
+    },
+    {
+      "image": "/images/work/work-img-3.jpg",
+      "title": "Apache Airflow platform on GCP — from scratch.",
+      "link": "https://www.linkedin.com/posts/saravanal_devops-terraform-gcp-activity-7440084999258738688-U6b5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADEhfpABwU9c8nLcVwaGcj2t8DNm7Zj8KQQ"
+    }
+  ]
+}
+
+
+
