@@ -60,44 +60,37 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* OVERLAY */}
+      {/* MOBILE MENU */}
       {menuOpen && (
         <div
           onClick={() => setMenuOpen(false)}
-          className="fixed inset-0 bg-black/50 z-40"
-        />
-      )}
-
-      {/* MOBILE MENU PANEL */}
-      <div
-        className={`fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-xl transform transition-transform duration-300 ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="p-6 mt-16 flex flex-col gap-6">
-
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={() => {
-                setActive(item.id);
-                setMenuOpen(false);
-              }}
-              className="text-gray-800 text-lg border-b pb-2"
-            >
-              {item.label}
-            </a>
-          ))}
-
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 flex items-center justify-center"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-2xl shadow-2xl w-[85%] max-w-sm p-6 flex flex-col gap-5 text-center animate-scaleIn"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={() => {
+                  setActive(item.id);
+                  setMenuOpen(false);
+                }}
+                className="text-gray-800 text-lg font-medium hover:text-orange-500 transition"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
 
 export default Header;
-
 
 // "use client";
 
