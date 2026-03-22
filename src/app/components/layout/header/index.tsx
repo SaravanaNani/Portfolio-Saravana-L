@@ -51,12 +51,16 @@ const Header = () => {
             ))}
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* ✅ FIXED MOBILE BUTTON */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 hover:bg-gray-100 active:scale-95 transition focus:outline-none"
+            className="md:hidden relative z-50 flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 active:scale-95 transition focus:outline-none"
+            style={{ WebkitTapHighlightColor: "transparent" }}
           >
-            <span className="text-xl text-gray-800">
+            {/* ❌ REMOVE global ::before effect */}
+            <span className="absolute inset-0 pointer-events-none"></span>
+
+            <span className="text-xl text-gray-800 relative z-10">
               {menuOpen ? "✕" : "☰"}
             </span>
           </button>
@@ -65,8 +69,10 @@ const Header = () => {
 
         {/* MOBILE MENU */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden transition-all duration-200 ease-in-out ${
+            menuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-2 pointer-events-none"
           }`}
         >
           <div className="flex flex-col gap-4 py-4 bg-white rounded-xl shadow-md mt-2 px-4">
@@ -98,7 +104,6 @@ const Header = () => {
 };
 
 export default Header;
-
 // "use client";
 
 // import { useState } from "react";
