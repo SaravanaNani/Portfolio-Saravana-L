@@ -51,54 +51,56 @@ const Header = () => {
             ))}
           </div>
 
-          {/* ✅ FIXED MOBILE BUTTON */}
+          {/* MOBILE BUTTON */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden relative z-50 flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 active:scale-95 transition focus:outline-none"
-            style={{ WebkitTapHighlightColor: "transparent" }}
+            className="md:hidden relative z-50 flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white active:scale-95 transition focus:outline-none before:hidden"
           >
-            {/* ❌ REMOVE global ::before effect */}
-            <span className="absolute inset-0 pointer-events-none"></span>
-
-            <span className="text-xl text-gray-800 relative z-10">
+            <span className="text-xl text-gray-800">
               {menuOpen ? "✕" : "☰"}
             </span>
           </button>
 
         </nav>
-
-        {/* MOBILE MENU */}
-        <div
-          className={`md:hidden transition-all duration-200 ease-in-out ${
-            menuOpen
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
-        >
-          <div className="flex flex-col gap-4 py-4 bg-white rounded-xl shadow-md mt-2 px-4">
-
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={() => {
-                  setActive(item.id);
-                  setMenuOpen(false);
-                }}
-                className={`transition ${
-                  active === item.id
-                    ? "text-orange-500 font-medium"
-                    : "text-gray-700 hover:text-orange-500"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-
-          </div>
-        </div>
-
       </div>
+
+      {/* 🔥 OVERLAY (click outside to close) */}
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+        />
+      )}
+
+      {/* 🔥 MOBILE MENU PANEL */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50 transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="p-6 flex flex-col gap-6 mt-16">
+
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={() => {
+                setActive(item.id);
+                setMenuOpen(false); // ✅ auto close
+              }}
+              className={`text-base ${
+                active === item.id
+                  ? "text-orange-500 font-medium"
+                  : "text-gray-700"
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+
+        </div>
+      </div>
+
     </header>
   );
 };
