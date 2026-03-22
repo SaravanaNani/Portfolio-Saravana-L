@@ -9,7 +9,7 @@ html {
 
 /* ✅ FIX: Anchor scroll offset for fixed header */
 section {
-  scroll-margin-top: 22px; /* adjust if needed */
+  scroll-margin-top: 26px; /* adjust if needed */
 }
 
 body {
