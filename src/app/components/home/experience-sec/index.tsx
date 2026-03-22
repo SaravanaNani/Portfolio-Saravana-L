@@ -5,13 +5,13 @@ const ExperienceSec = () => {
     {
       year: "Dec 2024 - Oct 2025",
       title: "DevOps Engineer",
-      company: "Adaequare",
+      company: "Adaequare Info Pvt Ltd",
       desc: "Automated AWS infrastructure using Terraform and built CI/CD pipelines with Jenkins. Worked with Docker, Kubernetes (EKS), and monitoring tools like Prometheus and Grafana, improving deployment efficiency by 40%.",
     },
     {
       year: "Feb 2024 - Oct 2024",
       title: "DevOps Engineer",
-      company: "Adaequare",
+      company: "Adaequare Info Pvt Ltd",
       desc: "Worked on AWS cloud infrastructure automation using Terraform (VPC, EC2, S3) and built CI/CD pipelines using Jenkins and Maven. Integrated Terraform with Ansible for end-to-end automation and created Docker-based Jenkins agents for scalable builds. Gained hands-on experience with Kubernetes (EKS), monitoring tools like Prometheus and Grafana, and improved deployment efficiency by 40%."
     },
     {
