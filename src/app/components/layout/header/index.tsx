@@ -16,13 +16,13 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200">
       <div className="container max-w-6xl mx-auto px-4">
         <nav className="py-4 flex items-center justify-between">
 
           {/* LOGO */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow">
               S
             </div>
           </div>
@@ -48,32 +48,38 @@ const Header = () => {
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden w-10 h-10 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+            className="md:hidden w-10 h-10 rounded-lg border border-gray-300 bg-white flex items-center justify-center shadow-sm"
           >
             ☰
           </button>
         </nav>
       </div>
 
-      {/* OVERLAY */}
-      <div
-        className={`fixed inset-0 bg-black/40 transition-opacity ${
-          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-        onClick={() => setMenuOpen(false)}
-      />
+      {/* OVERLAY (NO BLUR, CLEAN DARK) */}
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 bg-black/50 z-40"
+        />
+      )}
 
       {/* SIDE DRAWER */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-2xl transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* CLOSE BUTTON */}
-        <div className="flex justify-end p-4">
+        {/* HEADER */}
+        <div className="flex items-center justify-between px-5 py-4 border-b">
+          
+          <div className="w-9 h-9 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+            S
+          </div>
+
+          {/* MODERN CLOSE BUTTON */}
           <button
             onClick={() => setMenuOpen(false)}
-            className="text-2xl text-gray-700"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition"
           >
             ✕
           </button>
